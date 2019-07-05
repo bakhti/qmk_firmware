@@ -8,10 +8,8 @@ extern keymap_config_t keymap_config;
 
 enum my_layers {
   _QWERTZ,
-  _CMK_DHM,
   _SYS,
   _NAV,
-  _NUM_E,
   _NUM_N,
   _SYM
 };
@@ -123,7 +121,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * If you use QWERTZ + the Vanilla numbers primarily, change NUMLK_E to NUMLK_N here.
  *
  * ,----------------------------------.           ,----------------------------------.
- * | RESET|DEBUG |QWERTZ|CMKDHM|      |           |      | VOL--| VOL++|BRITE-|BRITE+|
+ * | RESET|DEBUG |QWERTZ|      |      |           |      | VOL--| VOL++|BRITE-|BRITE+|
  * |------+------+------+------+------|           |------+------+------+------+------|
  * | SHIFT| CTRL |  ALT |  GUI |NAV LK|           | POWER| VOL- | VOL+ | MUTE | MPLY |
  * |------+------+------+------+------|           |------+------+------+------+------|
@@ -136,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [_SYS] = LAYOUT( \
-  RESET,   DEBUG,   QWERTZ,  CMK_DHM, _______,       _______,  KC_VOLD, KC_VOLU, KC_BRID,  KC_BRIU, \
+  RESET,   DEBUG,   QWERTZ,  _______, _______,       _______,  KC_VOLD, KC_VOLU, KC_BRID,  KC_BRIU, \
   KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, NAV_LK,        KC_POWER, VOL_DN,  VOL_UP,  KC__MUTE, KC_MPLY, \
   _______, _______, AU_OFF,  AU_ON,   _______,       _______,  NUMLK_N, KC_MRWD, KC_MFFD,  _______, \
                     _______, _______, _______,       _______,  _______, _______                     \
@@ -194,7 +192,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|           |------+------+------+------+------|
  * | SFT/+| CTL/^| ALT/(| GUI/)|   "  |           |   ß  | GUI/Ü| ALT/Ö| CTL/Ä| SFT/$|
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |   <  |  >   |  {   |   }  |   \  |           |   `  |   |  |   /  |   ~  |   ;  |
+ * |   <  |  >   |  {   |   }  |   `  |           |   \  |   |  |   /  |   ~  |   ;  |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,--------------------.
  *                  |      |ENDASH|      |    |      |EMDASH|      |
@@ -205,7 +203,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_SYM] = LAYOUT( \
   DE_OSX_EXLM, DE_MY_AT,    DE_MY_LBRC,  DE_MY_RBRC,  DE_OSX_ASTR,       DE_OSX_PERC, DE_OSX_AMPR, DE_OSX_EQL, DE_OSX_QST,  DE_OSX_QUOT, \
   TD(SFT_PLS), CTRL_EQ,     TD(ALT_LP),  TD(GUI_RP),  DE_OSX_DQOT,       DE_OSX_SS,   GUI_RB,      ALT_LB,      TD(CTL_RCB), TD(SFT_LCB), \
-  DE_OSX_LESS, DE_OSX_MORE, DE_MY_LCBR,  DE_MY_RCBR,  DE_MY_BSLS,        DE_OSX_GRV,  DE_MY_PIPE, DE_OSX_SLSH, DE_MY_TILD,  DE_OSX_SCLN, \
+  DE_OSX_LESS, DE_OSX_MORE, DE_MY_LCBR,  DE_MY_RCBR,  DE_OSX_GRV,        DE_MY_BSLS,  DE_MY_PIPE, DE_OSX_SLSH, DE_MY_TILD,  DE_OSX_SCLN, \
                                _______,    MAC_EN,     _______,          _______, MAC_EM,  _______                            \
 )
 
@@ -213,11 +211,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
-    case CMK_DHM:
-      if (record->event.pressed) {
-        set_single_persistent_default_layer(_CMK_DHM);
-      }
-      return false;
     case QWERTZ:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_QWERTZ);
