@@ -143,23 +143,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Navigation + mouse keys
  *
  * ,----------------------------------.           ,----------------------------------.
- * | PSCR |      | WH U | WH D |      |           | BSPC | PGDN | PGUP | HOME |  END |
+ * | PSCR |      | WH U | WH D |      |           | HOME | PGDN | PGUP |  END | BSPC |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * | SHIFT| CTRL |  ALT |  GUI |NAV LK|           | LEFT | DOWN |  UP  | RIGHT| CAPS |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |      | ACL0 | ACL1 | ACL2 | BTN2 |           | BTN1 | MS L | MS D | MS U | MS R |
+ * |      | ACL0 | ACL1 | ACL2 | BTN2 |           | MS L | MS D | MS U | MS R | BTN1 |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,--------------------.
- *                  |      |      |      |    |      | ENTER|      |
- *                  `------+------|  ESC |    | DEL  |------+------'
+ *                  |      |      |      |    |      | DEL  | ESC  |
+ *                  `------+------|      |    | ENT  |------+------'
  *                                |      |    |      |
  *                                `------'    `------'
  */
 [_NAV] = LAYOUT( \
-  KC_PSCR, _______, KC_WH_U, KC_WH_D, _______,       KC_BSPC, KC_PGDN, KC_PGUP, KC_HOME, KC_END,  \
+  KC_PSCR, _______, KC_WH_U, KC_WH_D, _______,       KC_HOME, KC_PGDN, KC_PGUP, KC_END, KC_BSPC,  \
   KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, NAV_LK,        KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_CAPS, \
-  _______, KC_ACL0, KC_ACL1, KC_ACL2, KC_BTN2,       KC_BTN1, KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, \
-                    _______, _______, KC_ESC,        KC_DEL,  KC_ENT,  _______                    \
+  _______, KC_ACL0, KC_ACL1, KC_ACL2, KC_BTN2,       KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_BTN1, \
+  _______, _______, _______,        KC_ENT, KC_DEL, KC_ESC \
 ),
 
 /* Number + function keys (numeric number order - default pairing with QWERTZ)
@@ -172,8 +172,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  F11 |  F12 |   -  | SPACE| BSPC |           |  DEL |NUM LK|   {  |   €  |   /  |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,--------------------.
- *                  |      | TAB  |      |    |      |      |      |
- *                  `------+------|  ESC |    |      |------+------'
+ *                  | ESC  | TAB  |      |    |      |      |      |
+ *                  `------+------|  ENT |    |      |------+------'
  *                                |      |    |      |
  *                                `------'    `------'
  */
@@ -181,7 +181,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_F1,   KC_F2,   KC_F3,       KC_F4,   KC_F5,         KC_F6,    KC_F7,   KC_F8,      KC_F9,      KC_F10,  \
   SFT_1,   CTRL_2,  ALT_3,       GUI_4,   DE_OSX_5,      DE_OSX_6, GUI_7,   ALT_8,      CTRL_9,     SFT_0,   \
   KC_F11,  KC_F12,  DE_OSX_ASTR, KC_SPC,  KC_BSPC,       KC_DEL,   NUMLK_N, DE_MY_LCBR, DE_MY_EURO, DE_OSX_ACUT, \
-                        _______, KC_TAB,  KC_ESC,        _______, _______, _______                    \
+                        KC_ESC, KC_TAB,  KC_ENT,        _______, _______, _______                    \
 ),
 
 
